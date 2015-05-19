@@ -10,7 +10,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-o', help='out directory', default='out/')
-parser.add_argument('-j', help='json file with links')
+parser.add_argument('-j', help='json file with links', default='out.json')
 
 args = parser.parse_args()
 
@@ -29,7 +29,7 @@ for r in results:
         with open(outimgfn, 'wb') as outf:
             outf.write(response.read())
         outfiles[outimgfn] = r
-        
+
     except:
         print "Error downloading the file..."
 
